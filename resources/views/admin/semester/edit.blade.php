@@ -24,15 +24,16 @@
 
                     <div class="card">
                       <div class="card-body">
-                        <h5 class="card-title">Semester Baru</h5>
+                        <h5 class="card-title">Ubah Semester : <b>{{ $semester->name }}</b></h5>
           
                         <!-- Vertical Form -->
-                        <form class="row g-3" action="{{ route('semesters.store')}}" method="POST">
+                        <form class="row g-3" action="{{ route('semesters.update', $semester->slug)}}" method="POST">
                             @csrf
+                            @method('PUT')
 
                           <div class="col-12">
                             <label for="name" class="form-label">Semester</label>
-                            <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}"  value="{{old('name') ?: ''}} " id="name"  name="name" placeholder="contoh : SEMETSER 2020/2023 GANJIL">
+                            <input type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}"  value="{{ old('name', $semester->name) }}"  id="name"  name="name" placeholder="contoh : SEMETSER 2020/2023 GANJIL">
                             @if ($errors->has('name'))
                               <div class="invalid-feedback">
                                 {{$errors->first('name')}}

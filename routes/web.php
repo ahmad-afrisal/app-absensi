@@ -15,7 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('semesters', SemesterController::class);
+// Route::resource('semesters', SemesterController::class);
+Route::controller(SemesterController::class)->group(function () {
+    Route::get('semesters', 'index')->name('semesters.index');
+    Route::post('semesters', 'store')->name('semesters.store');
+    Route::get('semesters/create', 'create')->name('semesters.create');
+    Route::put('semesters/{semester:slug}', 'update')->name('semesters.update');
+    Route::delete('semester/{semester:slug}', 'destroy')->name('semesters.destroy');;
+    Route::get('semesters/{semester:slug}/edit', 'edit')->name('semesters.edit');;
+});
 
 Route::get('/', function () {
     return view('welcome');

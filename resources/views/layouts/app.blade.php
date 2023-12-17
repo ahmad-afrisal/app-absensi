@@ -9,6 +9,9 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+   <!-- Laravel Notify -->
+   @notifyCss
+
   @include('components.style')
   
 
@@ -25,6 +28,10 @@
   @include('components.footer')
   
   @include('components.script')
+
+  <!-- Laravel Notify -->
+  @include('notify::components.notify')
+  @notifyJs
 
 
 </body>
