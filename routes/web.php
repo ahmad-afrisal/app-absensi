@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\SemesterController;
+use App\Http\Controllers\Admin\GroupController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Group;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +26,16 @@ Route::controller(SemesterController::class)->group(function () {
     Route::delete('semester/{semester:slug}', 'destroy')->name('semesters.destroy');;
     Route::get('semesters/{semester:slug}/edit', 'edit')->name('semesters.edit');;
 });
+
+Route::controller(GroupController::class)->group(function () {
+    Route::get('groups', 'index')->name('groups.index');
+    Route::post('groups', 'store')->name('groups.store');
+    Route::get('groups/create', 'create')->name('groups.create');
+    Route::put('groups/{group:slug}', 'update')->name('groups.update');
+    Route::delete('groups/{group:slug}', 'destroy')->name('groups.destroy');;
+    Route::get('groups/{group:slug}/edit', 'edit')->name('semesters.edit');;
+});
+
 
 Route::get('/', function () {
     return view('welcome');
