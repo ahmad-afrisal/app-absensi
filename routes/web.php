@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\GroupController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Group;
 use Illuminate\Support\Facades\Route;
+use SimpleSoftwareIO\QrCode\Facades\QrCode as FacadesQrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('qrcode', function () {
+  
+    return FacadesQrCode::size(120)->generate('D0220374');
+});
 
 // Route::resource('semesters', SemesterController::class);
 Route::controller(SemesterController::class)->group(function () {
