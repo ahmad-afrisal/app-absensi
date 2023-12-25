@@ -18,6 +18,19 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode as FacadesQrCode;
 |
 */
 
+
+Route::get('/admin', function() {
+    return 'Hi Admin';
+})->middleware('role:admin');
+
+Route::get('/student', function() {
+    return 'Hi User';
+})->middleware('role:student');
+
+Route::get('/teacher', function() {
+    return 'Hi User';
+})->middleware('role:teacher');
+
 Route::get('qrcode', function () {
   
     return FacadesQrCode::size(120)->generate('D0220374');
