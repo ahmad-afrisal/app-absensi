@@ -32,7 +32,7 @@ Route::get('/teacher', function() {
 })->middleware('role:teacher');
 
 Route::get('qrcode', function () {
-  
+
     return FacadesQrCode::size(120)->generate('D0220374');
 });
 
