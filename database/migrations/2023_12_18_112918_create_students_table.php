@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('level');
             $table->text('address');
             $table->date('date_of_birth');
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });

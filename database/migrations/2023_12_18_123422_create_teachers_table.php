@@ -19,6 +19,7 @@ return new class extends Migration
             $table->boolean('gender');
             $table->string('phone_number');
             $table->string('level');
+            $table->string('picture')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });
