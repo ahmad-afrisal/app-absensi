@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('fullname');
             $table->boolean('gender');
             $table->string('phone_number');
-            $table->string('level');
+            $table->boolean('level');
             $table->boolean('status');
             $table->timestamps();
         });

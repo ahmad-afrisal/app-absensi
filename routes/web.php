@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\SemesterController;
 use App\Http\Controllers\Admin\GroupController;
+use App\Http\Controllers\Admin\GuruController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Group;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,9 @@ Route::controller(GroupController::class)->group(function () {
     Route::get('groups/{group:slug}/edit', 'edit')->name('semesters.edit');;
 });
 
+Route::controller(GuruController::class)->group(function () {
+    Route::get('guru','index')->name('guru.index');
+});
 
 Route::get('/', function () {
     return view('welcome');
