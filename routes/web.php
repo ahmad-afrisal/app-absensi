@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\GuruController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Group;
 use Illuminate\Support\Facades\Route;
+use SimpleSoftwareIO\QrCode\Facades\QrCode as FacadesQrCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,24 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::get('/admin', function() {
+    return 'Hi Admin';
+})->middleware('role:admin');
+
+Route::get('/student', function() {
+    return 'Hi User';
+})->middleware('role:student');
+
+Route::get('/teacher', function() {
+    return 'Hi User';
+})->middleware('role:teacher');
+
+Route::get('qrcode', function () {
+
+    return FacadesQrCode::size(120)->generate('D0220374');
+});
 
 // Route::resource('semesters', SemesterController::class);
 Route::controller(SemesterController::class)->group(function () {
