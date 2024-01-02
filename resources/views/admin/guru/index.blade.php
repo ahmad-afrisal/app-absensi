@@ -55,6 +55,7 @@ Guru
                     <th>NIP</th>
                     <th>Full Name</th>
                     <th>No Telepon</th>
+                    <th>Level</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -64,6 +65,11 @@ Guru
                             <td>{{$pengajar->nip}}</td>
                             <td>{{$pengajar->fullname}}</td>
                             <td>{{$pengajar->phone_number}}</td>
+                            <td>{{$pengajar->level}}</td>
+                            <td>
+                              <a href="#" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                              <a href="#" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                 

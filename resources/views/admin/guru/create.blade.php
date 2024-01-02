@@ -33,12 +33,16 @@
                 </div>
                 <div class="col-12">
                   <label for="inputEmail4" class="form-label">Full Name</label>
-                  <input type="email" class="form-control" id="inputEmail4">
+                  <input type="text" class="form-control" id="inputEmail4">
                 </div>
                 <div class="col-12">
                   <label for="inputPassword4" class="form-label">No Telepon</label>
-                  <input type="password" class="form-control" id="inputPassword4">
+                  <input type="number" class="form-control" id="inputPassword4">
                 </div>
+                <div class="col-12">
+                    <label for="inputPassword4" class="form-label">Level</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+                  </div>
 
                 <div class="text-start">
                   <button type="submit" class="btn btn-primary">Submit</button>
