@@ -58,6 +58,7 @@ Route::controller(GroupController::class)->group(function () {
 
 Route::controller(GuruController::class)->group(function () {
     Route::get('guru','index')->name('guru.index');
+    Route::get('guru/create','create')->name('guru.create');
 });
 
 Route::get('/', function () {
