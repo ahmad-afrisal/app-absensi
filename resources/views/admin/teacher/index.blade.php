@@ -69,7 +69,13 @@ Teacher
                             <td>{{$no++}}</td>
                             <td>{{$pengajar->nip}}</td>
                             <td>{{$pengajar->fullname}}</td>
-                            <td>{{$pengajar->gender}}</td>
+                            <td>
+                              @if($pengajar->gender == 0)
+                                  Perempuan
+                              @elseif($pengajar->gender == 1)
+                                  Laki-laki
+                              @endif
+                            </td>
                             <td>{{$pengajar->phone_number}}</td>
                             <td>{{$pengajar->level}}</td>
                             <td>
