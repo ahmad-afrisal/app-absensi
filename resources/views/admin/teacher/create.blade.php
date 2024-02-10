@@ -12,7 +12,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Tambah</a></li>
-          <li class="breadcrumb-item">Forms</li>
+          <li class="breadcrumb-item">Form</li>
           <li class="breadcrumb-item active">Guru</li>
         </ol>
       </nav>

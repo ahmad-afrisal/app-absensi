@@ -55,7 +55,7 @@ class TeacherController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return abort(404);
     }
 
     /**
@@ -63,7 +63,8 @@ class TeacherController extends Controller
      */
     public function edit(string $id)
     {
-        $teach = Teacher::all()->where('id', $id);
+        // $teach = Teacher::all()->where('id', $id);
+        $teach = Teacher::find($id);
         return view ('admin.teacher.edit', compact('teach'));;
     }
 
@@ -72,7 +73,17 @@ class TeacherController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //update menggunakan eloquent
+        $pengajar = Teacher::find($id);
+        $pengajar->nip = $request->nip;
+        $pengajar->fullname = $request->fullname;
+        $pengajar->gender = $request->gender;
+        $pengajar->phone_number = $request->phone_number;
+        $pengajar->level = $request->level;
+        // $pengajar->status = $request->status;
+        $pengajar->save();
+
+        return redirect()->route('teachers.index')->with('success', 'Data Berhasil diperbarui');
     }
 
     /**

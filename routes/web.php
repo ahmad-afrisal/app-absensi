@@ -61,6 +61,7 @@ Route::controller(TeacherController::class)->group(function () {
     Route::get('teachers/create','create')->name('teachers.create');
     Route::post('teachers', 'store')->name('teachers.store');
     Route::get('teachers/edit/{id}', 'edit')->name('teachers.edit');
+    Route::put('teachers/update/{id}', 'update')->name('teachers.update');
 });
 
 Route::get('/', function () {
