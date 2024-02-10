@@ -91,6 +91,10 @@ class TeacherController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //menghapus menggunakan eloquent
+        $pengajar = Teacher::find($id);
+        $pengajar->delete();
+    
+        return redirect()->route('teachers.index')->with('success', 'Data Berhasil dihapus');
     }
 }

@@ -62,6 +62,7 @@ Route::controller(TeacherController::class)->group(function () {
     Route::post('teachers', 'store')->name('teachers.store');
     Route::get('teachers/edit/{id}', 'edit')->name('teachers.edit');
     Route::put('teachers/update/{id}', 'update')->name('teachers.update');
+    Route::delete('teachers/delete/{id}', 'destroy')->name('teachers.destroy');
 });
 
 Route::get('/', function () {
