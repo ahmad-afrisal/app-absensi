@@ -19,7 +19,7 @@
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('guru.index')}}">
+        <a class="nav-link collapsed" href="{{ route('teachers.index')}}">
           <i class="bi bi-envelope"></i>
           <span>Guru</span>
         </a>

@@ -8,17 +8,17 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Str;
 
-class GuruController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $guru = Teacher::all()->sortByDesc("id");
+        $teacher = Teacher::all()->sortByDesc("id");
 
-        return view('admin.guru.index', [
-            'guru' => $guru
+        return view('admin.teacher.index', [
+            'teacher' => $teacher
         ]);
     }
 
@@ -27,8 +27,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.guru.create');
+        return view('admin.teacher.create');
     }
 
     /**
@@ -36,7 +35,19 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $teach = Teacher::create([
+            'user_id' => 1,
+            'nip' => $request->nip,
+            'fullname' => $request->fullname,
+            // 'gender' => $request->gender,
+            // 'gender' => 0,
+            'gender' => $request->input('gender'),
+            'phone_number' => $request->phone_number,
+            'level' => $request->level,
+            'status' => 1,
+        ]);
+
+        return redirect()->route('teachers.index')->with('success', 'Data Berhasil ditambahkan');
     }
 
     /**
@@ -52,7 +63,8 @@ class GuruController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $teach = Teacher::all()->where('id', $id);
+        return view ('admin.teacher.edit', compact('teach'));;
     }
 
     /**

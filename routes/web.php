@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\SemesterController;
 use App\Http\Controllers\Admin\GroupController;
-use App\Http\Controllers\Admin\GuruController;
+use App\Http\Controllers\Admin\TeacherController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Group;
 use Illuminate\Support\Facades\Route;
@@ -43,8 +43,8 @@ Route::controller(SemesterController::class)->group(function () {
     Route::post('semesters', 'store')->name('semesters.store');
     Route::get('semesters/create', 'create')->name('semesters.create');
     Route::put('semesters/{semester:slug}', 'update')->name('semesters.update');
-    Route::delete('semester/{semester:slug}', 'destroy')->name('semesters.destroy');;
-    Route::get('semesters/{semester:slug}/edit', 'edit')->name('semesters.edit');;
+    Route::delete('semester/{semester:slug}', 'destroy')->name('semesters.destroy');
+    Route::get('semesters/{semester:slug}/edit', 'edit')->name('semesters.edit');
 });
 
 Route::controller(GroupController::class)->group(function () {
@@ -52,13 +52,15 @@ Route::controller(GroupController::class)->group(function () {
     Route::post('groups', 'store')->name('groups.store');
     Route::get('groups/create', 'create')->name('groups.create');
     Route::put('groups/{group:slug}', 'update')->name('groups.update');
-    Route::delete('groups/{group:slug}', 'destroy')->name('groups.destroy');;
-    Route::get('groups/{group:slug}/edit', 'edit')->name('semesters.edit');;
+    Route::delete('groups/{group:slug}', 'destroy')->name('groups.destroy');
+    Route::get('groups/{group:slug}/edit', 'edit')->name('semesters.edit');
 });
 
-Route::controller(GuruController::class)->group(function () {
-    Route::get('guru','index')->name('guru.index');
-    Route::get('guru/create','create')->name('guru.create');
+Route::controller(TeacherController::class)->group(function () {
+    Route::get('teachers','index')->name('teachers.index');
+    Route::get('teachers/create','create')->name('teachers.create');
+    Route::post('teachers', 'store')->name('teachers.store');
+    Route::get('teachers/edit/{id}', 'edit')->name('teachers.edit');
 });
 
 Route::get('/', function () {
