@@ -18,8 +18,11 @@ return new class extends Migration
             $table->string('fullname');
             $table->boolean('gender');
             $table->string('phone_number');
+            $table->boolean('level');
+
             $table->string('level');
             $table->string('picture')->nullable();
+
             $table->boolean('status');
             $table->timestamps();
         });
